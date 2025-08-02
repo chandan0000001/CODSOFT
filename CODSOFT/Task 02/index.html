@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandan's Shop | Master Web Design & Build Landing Pages</title>
+    
+    <!-- SEO: Improved Meta Description for better click-through rates -->
+    <meta name="description" content="Learn web design and master HTML/CSS by building stunning, responsive landing pages with Chandan's Shop. Start your web development journey today!">
+    
+    <!-- SEO: Open Graph Tags for Social Media Sharing -->
+    <meta property="og:title" content="Chandan's Shop | Master Web Design & Build Landing Pages">
+    <meta property="og:description" content="Learn web design and master HTML/CSS by building stunning, responsive landing pages with Chandan's Shop. Start your web development journey today!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourwebsite.com/"> <!-- IMPORTANT: Replace with your actual website URL -->
+    <meta property="og:image" content="https://www.yourwebsite.com/victor-dasilva-WWw24_wucws-unsplash.jpg"> <!-- RESTORED: Original image path -->
+    <meta property="og:image:alt" content="Web design interface showing code and a browser preview, representing web development.">
+    
+    <!-- SEO: Twitter Card Tags for Twitter Sharing -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@yourtwitterhandle"> <!--  Replace with your Twitter handle -->
+    <meta name="twitter:creator" content="@yourtwitterhandle"> <!-- IMPORTANT: Replace with your Twitter handle -->
+    <meta name="twitter:title" content="Chandan's Shop | Master Web Design & Build Landing Pages">
+    <meta name="twitter:description" content="Learn web design and master HTML/CSS by building stunning, responsive landing pages with Chandan's Shop. Start your web development journey today!">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/victor-dasilva-WWw24_wucws-unsplash.jpg"> <!-- RESTORED: Original image path -->
+
+    <!-- SEO: Canonical Tag (if you have multiple URLs for the same content, uncomment and update) -->
+    <!-- <link rel="canonical" href="https://www.yourwebsite.com/"> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    
+    <!-- SEO: Add a favicon for brand recognition and user experience -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"> <!-- Adjust path if needed, create this file -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"> <!-- For older browsers -->
+
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* CSS Variables for theming */
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --accent: #42E2B8;
+            --dark: #2A2D43;
+            --light: #F9F7FF;
+            --text-color: var(--dark);
+            --bg-color: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            --header-bg: rgba(255, 255, 255, 0.9);
+            --header-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            --card-gradient: linear-gradient(145deg, #ffffff, #f0f0f0);
+            --section-bg-light: white;
+            --section-bg-accent: linear-gradient(135deg, #f9f7ff 0%, #e6e3ff 100%);
+            --base-transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --header-height: 80px;
+            --mobile-header-height: 70px;
+        }
+
+        /* Dark mode variables */
+        body.dark-mode {
+            --dark: #10101d;
+            --light: #2A2D43;
+            --text-color: #F9F7FF;
+            --bg-color: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            --header-bg: rgba(26, 33, 46, 0.9);
+            --header-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            --card-gradient: linear-gradient(145deg, #2a2d43, #1e2030);
+            --section-bg-light: #1a1a2e;
+            --section-bg-accent: linear-gradient(135deg, #1e2030 0%, #2a2d43 100%);
+            --primary: #8a85ff;
+            --secondary: #FF85A4;
+            --accent: #62F2D8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden; /* Ensures no horizontal scroll */
+            position: relative;
+            transition: background 0.3s ease, color 0.3s ease;
+            padding-top: var(--header-height);
+        }
+
+        /* Dynamic pattern for light/dark modes */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            z-index: -1;
+            background-image: 
+                radial-gradient(circle at 10% 20%, var(--primary) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, var(--secondary) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, var(--accent) 0%, transparent 25%);
+            background-size: 500px 500px;
+            animation: background-pan 60s linear infinite;
+        }
+
+        @keyframes background-pan {
+            from { background-position: 0% 0%; }
+            to { background-position: 100% 100%; }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 0 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0; /* Explicitly set left position for fixed element */
+            z-index: 1000;
+            background: var(--header-bg);
+            box-shadow: var(--header-shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: var(--base-transition);
+            height: var(--header-height);
+        }
+
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            height: var(--mobile-header-height);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; /* Prevent logo from shrinking */
+        }
+
+        .logo i {
+            margin-right: 8px;
+            color: var(--secondary);
+            font-size: 22px;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .logo:hover i {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        nav {
+            flex-grow: 1; /* Allow nav to take up available space */
+            display: flex;
+            justify-content: center; /* Center the nav items */
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        nav ul li a i {
+            margin-right: 6px;
+            font-size: 14px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        nav ul li a:hover i {
+            opacity: 1;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0; /* Prevent action buttons from shrinking */
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--base-transition);
+            cursor: pointer;
+            border: none;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #5a52e0;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(108, 99, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-color);
+            cursor: pointer;
+            z-index: 1001;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            z-index: 1002; 
+        }
+        .theme-toggle-btn:hover {
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        /* FIXED: Hide mobile-only button by default on all screen sizes */
+        .mobile-only {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .hero-text {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: rgba(108, 99, 255, 0.2);
+            z-index: -1;
+            border-radius: 5px;
+            transition: height 0.3s ease;
+        }
+
+        .hero h1 span:hover::after {
+            height: 100%;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+            opacity: 0.8;
+            padding: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-image .image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border: 8px solid white;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        body.dark-mode .hero-image .image-container {
+            border-color: var(--light);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-image img {
+            width: 100%;
+            display: block;
+            height: auto;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .hero-image .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .image-container:hover .gradient-overlay {
+            opacity: 1;
+        }
+
+        /* General Section Styling */
+        .section {
+            padding: 80px 0;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+        .section.bg-light { background: var(--section-bg-light); }
+        .section.bg-accent { background: var(--section-bg-accent); }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--text-color);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-color);
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        /* Card reveal animation */
+        .reveal-card {
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            transition: opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-gradient);
+            border-radius: 18px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.3s ease;
+        }
+
+        body.dark-mode .feature-card { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 45px rgba(108, 99, 255, 0.15);
+        }
+
+        body.dark-mode .feature-card:hover { box-shadow: 0 20px 45px rgba(108, 99, 255, 0.3); }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover::before { transform: scaleX(1); }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: var(--primary);
+            transition: var(--base-transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotateY(360deg) scale(1.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .feature-card p {
+            color: var(--text-color);
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* Showcase Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            height: 250px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        body.dark-mode .gallery-item { box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 45px rgba(108, 99, 255, 0.2);
+        }
+        
+        body.dark-mode .gallery-item:hover { box-shadow: 0 20px 45px rgba(108, 99, 255, 0.3); }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img { transform: scale(1.1); }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(26, 29, 45, 0.9), transparent);
+            padding: 20px 15px 15px;
+            color: white;
+            transform: translateY(101%);
+            transition: transform 0.4s ease;
+        }
+        
+        body.dark-mode .gallery-overlay { background: linear-gradient(to top, rgba(16,16,29,0.9), transparent); }
+        
+        .gallery-item:hover .gallery-overlay { transform: translateY(0); }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            align-items: center;
+        }
+        
+        .pricing-card {
+            background: var(--card-gradient);
+            border-radius: 18px;
+            padding: 30px 25px;
+            text-align: center;
+            transition: var(--base-transition);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        body.dark-mode .pricing-card {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .pricing-card.popular {
+            transform: scale(1.05);
+            border: 2px solid var(--primary);
+            z-index: 2;
+        }
+        
+        .pricing-card.popular::after {
+            content: 'POPULAR';
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text-color);
+        }
+        
+        .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+        
+        .price span {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 25px 0;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+
+        body.dark-mode .pricing-features li {
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .pricing-features li i {
+            color: var(--accent);
+            margin-right: 8px;
+            font-size: 14px;
+        }
+        .pricing-features li i.fa-times {
+            color: var(--secondary);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary) 0%, #8a85ff 100%);
+            color: white;
+        }
+
+        .testimonials .section-title h2 { color: white; }
+        .testimonials .section-title h2::after { background: var(--accent); }
+        .testimonials .section-title p { color: rgba(255, 255, 255, 0.8); }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 18px;
+            padding: 25px;
+            transition: var(--base-transition);
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .testimonial-avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 3px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            color: var(--primary);
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .testimonial-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-info p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-quote {
+            color: var(--accent);
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+        
+        .contact-details { list-style: none; }
+        
+        .contact-details li {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            background: var(--primary);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+        
+        .contact-form {
+            background: var(--section-bg-light);
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        body.dark-mode .contact-form {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .form-group { margin-bottom: 18px; }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+            font-size: 0.95rem;
+            background: var(--section-bg-light);
+            color: var(--text-color);
+        }
+
+        body.dark-mode .form-group input,
+        body.dark-mode .form-group textarea {
+            border-color: rgba(255,255,255,0.2);
+            background: #10101d;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+        }
+        
+        .form-group textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        /* CTA Section */
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary) 0%, #8a85ff 100%);
+            border-radius: 25px;
+            padding: 60px 25px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+            box-shadow: 0 25px 50px -12px rgba(108, 99, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .cta-box h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
+
+        .cta-box p {
+            max-width: 500px;
+            margin: 0 auto 25px;
+            font-size: 1.05rem;
+            opacity: 0.9;
+            padding: 0 15px;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--primary);
+            padding: 14px 35px;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 70px 0 30px;
+            background: var(--dark);
+            color: white;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a i {
+            margin-right: 8px;
+            width: 18px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 16px;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: #5a52e0;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (min-width: 992px) {
+             nav ul li { margin: 0 25px; }
+        }
+
+        @media (min-width: 769px) {
+            .hero-content {
+                flex-direction: row;
+                text-align: left;
+            }
+            .hero-text {
+                width: 50%;
+                margin-bottom: 0;
+                padding-right: 50px;
+            }
+            .hero-image { width: 50%; }
+            .hero p { padding: 0; }
+            .hero-btns { justify-content: flex-start; }
+            .hero h1 { font-size: 3.2rem; }
+            .section { padding: 100px 0; }
+            .section-title h2 { font-size: 2.5rem; }
+            .contact-container {
+                grid-template-columns: 1fr 1.2fr;
+                text-align: left;
+            }
+        }
+
+        /* Mobile & Tablet Responsiveness */
+        @media (max-width: 768px) {
+            body { padding-top: var(--mobile-header-height); }
+            header { height: var(--mobile-header-height); }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 999;
+                transform: translateX(100%);
+                transition: transform 0.4s ease, opacity 0.4s ease;
+                pointer-events: none;
+                background: rgba(0,0,0,0.3);
+                opacity: 0;
+            }
+
+            nav.active {
+                transform: translateX(0);
+                pointer-events: all;
+                opacity: 1;
+            }
+
+            nav ul {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: min(80vw, 320px);
+                height: 100vh;
+                background: var(--header-bg);
+                flex-direction: column;
+                padding: 100px 30px 30px;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+                display: flex;
+                overflow-y: auto;
+            }
+            
+            nav ul li { margin: 0 0 25px 0; }
+            nav ul li a { font-size: 18px; }
+            
+            .mobile-menu-btn { display: block; }
+            
+            /* FIXED: Hide the main header button on mobile */
+            .header-actions .btn-primary { 
+                display: none; 
+            }
+
+            /* FIXED: Show the mobile-only button only when the nav menu is active */
+            nav.active .mobile-only {
+                display: block;
+                margin-top: 20px;
+            }
+
+            .logo { font-size: 20px; }
+            
+            .hero { padding: 50px 0 40px; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            
+            .section { padding: 60px 0; }
+            .section-title h2 { font-size: 1.8rem; }
+            
+            .features-grid, .gallery, .pricing-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .pricing-card.popular { transform: scale(1); }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.8rem; }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+            }
+            
+            .hero-btns .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <i class="fas fa-cube" aria-hidden="true"></i>Chandan's Shop
+            </a>
+            <nav id="nav">
+                <ul id="navMenu">
+                    <li><a href="#hero"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
+                    <li><a href="#features"><i class="fas fa-star" aria-hidden="true"></i> Features</a></li>
+                    <li><a href="#showcase"><i class="fas fa-image" aria-hidden="true"></i> Showcase</a></li>
+                    <li><a href="#pricing"><i class="fas fa-tag" aria-hidden="true"></i> Pricing</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope" aria-hidden="true"></i> Contact</a></li>
+                    
+                    <li class="mobile-only"><a href="#cta" class="btn btn-primary">Get Started</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <a href="#cta" class="btn btn-primary">Get Started</a>
+                <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Back to top button -->
+    <a href="#header" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </a>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Create Stunning <span>Landing Pages</span> with Ease</h1>
+                        <p>Master HTML and CSS by building beautiful, responsive landing pages. Perfect for beginners to learn web design fundamentals while creating something impressive.</p>
+                        <div class="hero-btns">
+                            <a href="#features" class="btn btn-primary">Start Learning</a>
+                            <a href="#showcase" class="btn btn-secondary">View Demo</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="image-container" id="imageContainer">
+                            <!-- 
+                                NOTE: The image source below is a local path. 
+                                For this image to display correctly, the file 'victor-dasilva-WWw24_wucws-unsplash.jpg' 
+                                must be in the same folder as this HTML file when you open it in a browser.
+                                It will appear broken in this preview environment.
+                            -->
+                            <img src="victor-dasilva-WWw24_wucws-unsplash.jpg" 
+                                 alt="Web Design with code on screen" 
+                                 loading="lazy"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/FFFFFF?text=Local+Image+Not+Found';">
+                            <div class="gradient-overlay" id="gradientOverlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section bg-light" id="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What You'll Learn</h2>
+                    <p>Master essential web development skills through hands-on project building</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card reveal-card">
+                        <div class="feature-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></div>
+                        <h3>Layout Design</h3>
+                        <p>Learn to create columns, divide sections, and arrange items using modern CSS techniques like Flexbox and Grid.</p>
+                    </div>
+                    <div class="feature-card reveal-card">
+                        <div class="feature-icon"><i class="fas fa-palette" aria-hidden="true"></i></div>
+                        <h3>Color Theory</h3>
+                        <p>Understand how to choose and apply color palettes that create visual harmony and enhance user experience.</p>
+                    </div>
+                    <div class="feature-card reveal-card">
+                        <div class="feature-icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></div>
+                        <h3>Responsive Design</h3>
+                        <p>Make your landing pages look great on all devices with responsive design principles and media queries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Showcase Section -->
+        <section class="section bg-accent" id="showcase">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Project Showcase</h2>
+                    <p>Explore beautiful landing pages created by our students</p>
+                </div>
+                <div class="gallery">
+                    <div class="gallery-item reveal-card">
+                        <img src="siarhei-palishchuk-qHHQXLUrKC0-unsplash.jpg" 
+                             alt="Minimal Portfolio Website" loading="lazy"
+                             onerror="this.onerror=null;this.src='https://placehold.co/400x250/cccccc/FFFFFF?text=Local+Image+Not+Found';">
+                        <div class="gallery-overlay">
+                            <h3>Minimal Portfolio</h3>
+                            <p>HTML, CSS, JavaScript</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item reveal-card">
+                        <img src="image.png" 
+                             alt="E-commerce Store Website" loading="lazy"
+                             onerror="this.onerror=null;this.src='https://placehold.co/400x250/cccccc/FFFFFF?text=Local+Image+Not+Found';">
+                        <div class="gallery-overlay">
+                            <h3>E-commerce Store</h3>
+                            <p>HTML, CSS, JavaScript</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item reveal-card">
+                        <img src="image copy.png" 
+                             alt="Travel Blog Website" loading="lazy"
+                             onerror="this.onerror=null;this.src='https://placehold.co/400x250/cccccc/FFFFFF?text=Local+Image+Not+Found';">
+                        <div class="gallery-overlay">
+                            <h3>Travel Blog</h3>
+                            <p>HTML, CSS, JavaScript</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="section bg-light" id="pricing">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Simple Pricing</h2>
+                    <p>Choose the plan that works best for your learning journey</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card reveal-card">
+                        <h3>Starter</h3>
+                        <div class="price">$0 <span>/month</span></div>
+                        <p>Perfect for beginners getting started</p>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Basic landing page templates</li>
+                            <li><i class="fas fa-check"></i> HTML/CSS tutorials</li>
+                            <li><i class="fas fa-check"></i> Community support</li>
+                            <li><i class="fas fa-times"></i> Premium templates</li>
+                            <li><i class="fas fa-times"></i> Advanced tutorials</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary">Get Started</a>
+                    </div>
+                    <div class="pricing-card popular reveal-card">
+                        <h3>Pro</h3>
+                        <div class="price">$19 <span>/month</span></div>
+                        <p>Best for serious learners</p>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> All starter features</li>
+                            <li><i class="fas fa-check"></i> Premium templates</li>
+                            <li><i class="fas fa-check"></i> Advanced tutorials</li>
+                            <li><i class="fas fa-check"></i> Code reviews</li>
+                            <li><i class="fas fa-check"></i> Priority support</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Get Started</a>
+                    </div>
+                    <div class="pricing-card reveal-card">
+                        <h3>Team</h3>
+                        <div class="price">$49 <span>/month</span></div>
+                        <p>For groups and classrooms</p>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> All pro features</li>
+                            <li><i class="fas fa-check"></i> 5 team members</li>
+                            <li><i class="fas fa-check"></i> Group projects</li>
+                            <li><i class="fas fa-check"></i> Progress tracking</li>
+                            <li><i class="fas fa-check"></i> Dedicated mentor</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Student Success Stories</h2>
+                    <p>Hear from beginners who transformed their skills with landing page projects</p>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card reveal-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">SJ</div>
+                            <div class="testimonial-info">
+                                <h4>Sanjay Jena</h4>
+                                <p>Web Design Student</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote"><i class="fas fa-quote-left"></i></p>
+                            <p>This project helped me understand CSS positioning and alignment in a practical way. I went from struggling with floats to creating complex layouts confidently!</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">MC</div>
+                            <div class="testimonial-info">
+                                <h4>Manju China</h4>
+                                <p>Frontend Developer</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote"><i class="fas fa-quote-left"></i></p>
+                            <p>The landing page project was my breakthrough moment. I learned how to implement responsive design principles that made my portfolio stand out to employers.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">ER</div>
+                            <div class="testimonial-info">
+                                <h4>Esha Rani</h4>
+                                <p>UI/UX Designer</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote"><i class="fas fa-quote-left"></i></p>
+                            <p>Creating my first landing page taught me more about visual hierarchy and spacing than any tutorial. It's the perfect project to showcase design skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section bg-light" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                    <p>Have questions? Get in touch with our team</p>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info reveal-card">
+                        <h3>Let's talk about your project</h3>
+                        <p>We're here to help you with any questions about our courses, projects, or learning resources.</p>
+                        <ul class="contact-details">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Location</h4>
+                                    <p>Odisha</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <p>+918114603994</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>hello@chandansshop.com</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contact-form reveal-card">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="How can we help?">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section" id="cta">
+            <div class="container">
+                <div class="cta-box reveal-card">
+                    <h2>Ready to Build Your First Landing Page?</h2>
+                    <p>Join thousands of beginners who have launched their web development journey with this fundamental project</p>
+                    <a href="#pricing" class="btn cta-btn">Start Learning Today</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer id="footer" class="reveal-card">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Chandan's Shop</h3>
+                    <p>Empowering beginners to create beautiful, functional websites through project-based learning.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-book" aria-hidden="true"></i> HTML Tutorials</a></li>
+                        <li><a href="#"><i class="fas fa-code" aria-hidden="true"></i> CSS Guides</a></li>
+                        <li><a href="#"><i class="fas fa-object-group" aria-hidden="true"></i> Layout Examples</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Projects</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-window-maximize" aria-hidden="true"></i> Landing Pages</a></li>
+                        <li><a href="#"><i class="fas fa-briefcase" aria-hidden="true"></i> Portfolio Sites</a></li>
+                        <li><a href="#"><i class="fas fa-shopping-cart" aria-hidden="true"></i> Product Showcases</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-envelope" aria-hidden="true"></i> hello@chandansshop.com</a></li>
+                        <li><a href="#"><i class="fas fa-phone" aria-hidden="true"></i> +91632667632</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Odisha</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Chandan's Shop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Element Selections ---
+            const header = document.getElementById('header');
+            const menuBtn = document.getElementById('menuBtn');
+            const nav = document.getElementById('nav');
+            const backToTop = document.getElementById('backToTop');
+            const imageContainer = document.getElementById('imageContainer');
+            const gradientOverlay = document.getElementById('gradientOverlay');
+            const themeToggleBtn = document.getElementById('themeToggle');
+            const body = document.body;
+            const contactForm = document.getElementById('contactForm');
+
+            // --- Interactive Hero Image ---
+            if (imageContainer) {
+                imageContainer.addEventListener('mousemove', (e) => {
+                    const rect = imageContainer.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const xPercent = (x / rect.width) - 0.5;
+                    const yPercent = (y / rect.height) - 0.5;
+
+                    const tiltX = xPercent * 15;
+                    const tiltY = yPercent * -15;
+
+                    window.requestAnimationFrame(() => {
+                        imageContainer.style.transform = `perspective(1000px) rotateX(${tiltY}deg) rotateY(${tiltX}deg) scale(1.05)`;
+                        if (gradientOverlay) {
+                            gradientOverlay.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%)`;
+                        }
+                    });
+                });
+
+                imageContainer.addEventListener('mouseleave', () => {
+                    window.requestAnimationFrame(() => {
+                        imageContainer.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                    });
+                });
+            }
+
+            // --- Mobile Menu Toggle ---
+            if(menuBtn && nav) {
+                menuBtn.addEventListener('click', () => {
+                    const isExpanded = nav.classList.toggle('active');
+                    menuBtn.setAttribute('aria-expanded', isExpanded);
+                    menuBtn.innerHTML = isExpanded ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                    body.style.overflow = isExpanded ? 'hidden' : ''; // Prevent body scroll when menu is open
+                });
+            }
+
+            // --- Close Mobile Menu on Link Click ---
+            if(nav) {
+                nav.addEventListener('click', (e) => {
+                    if (e.target.closest('a')) {
+                         if (nav.classList.contains('active')) {
+                            nav.classList.remove('active');
+                            menuBtn.setAttribute('aria-expanded', 'false');
+                            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                            body.style.overflow = ''; // Restore body scroll
+                        }
+                    }
+                });
+            }
+
+            // --- Scroll-based UI Changes ---
+            const handleScroll = () => {
+                const scrollY = window.scrollY;
+                if(header) {
+                    header.classList.toggle('scrolled', scrollY > 50);
+                }
+                if(backToTop) {
+                    backToTop.classList.toggle('visible', scrollY > 500);
+                }
+            };
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            handleScroll(); // Initial check on load
+
+            // --- Smooth Scrolling for Anchor Links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    let targetId = this.getAttribute('href');
+                    
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        const headerOffset = header ? header.offsetHeight : 70;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // --- Intersection Observer for Reveal Animations ---
+            const animatedElements = document.querySelectorAll('.reveal-card');
+            if("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0) scale(1)';
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                animatedElements.forEach(el => observer.observe(el));
+            } else {
+                // Fallback for older browsers
+                animatedElements.forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0) scale(1)';
+                });
+            }
+
+            // --- Theme Toggle Functionality ---
+            if(themeToggleBtn) {
+                const updateThemeIcon = (theme) => {
+                    themeToggleBtn.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                };
+
+                const applyTheme = (theme) => {
+                    body.classList.toggle('dark-mode', theme === 'dark');
+                    updateThemeIcon(theme);
+                    try {
+                        localStorage.setItem('theme', theme);
+                    } catch (e) {
+                        console.error('LocalStorage is not available.');
+                    }
+                };
+
+                themeToggleBtn.addEventListener('click', () => {
+                    const newTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+                    applyTheme(newTheme);
+                });
+
+                // Apply saved theme or system preference on load
+                let savedTheme = null;
+                try {
+                    savedTheme = localStorage.getItem('theme');
+                } catch(e) { /* ignore */ }
+                
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+            }
+
+            // --- Contact Form Submission ---
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    alert('Thank you for your message! (This is a demo)');
+                    // In a real application, you would send form data to a server here.
+                    // Example: fetch('/api/contact', { method: 'POST', body: new FormData(contactForm) });
+                    contactForm.reset(); // Clear the form fields
+                });
+            }
+        });
+    </script>
+</body>
+</html>

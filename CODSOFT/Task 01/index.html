@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandan Kumar Dalai | Web Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body>
+    <!-- Custom Message Box -->
+    <div id="message-box" class="message-box">
+        <div class="message-box-content">
+            <p id="message-box-text"></p>
+            <button id="message-box-close" class="btn">OK</button>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Chandan<span>.</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-subtitle"><h2>Hello, I'm</h2></span>
+                <h6 class="hero-title">Chandan Kumar Dalai</h6>
+                <h1 class="hero-title">I am a <span class="typing-text"></span><span class="cursor">|</span></h1>
+                <p class="hero-text">I craft visually stunning and highly responsive web experiences, blending modern design with robust functionality. My passion lies in creating intuitive user interfaces that bring ideas to life.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn">View My Work</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Placeholder image for profile. Will animate from B&W to color. -->
+                <img id="profile-photo" src="image.png" alt="Chandan Kumar Dalai Profile Picture">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="profile.jpg" alt="Chandan Kumar Dalai professional photo">
+                </div>
+                <div class="about-text">
+                    <h2>Frontend Developer & UI/UX Designer</h2>
+                    <p>Hello! I'm Chandan, a passionate frontend developer dedicated to building modern, responsive websites and applications. My expertise lies in HTML, CSS, JavaScript, and React, and I'm currently expanding my horizons to become a Java full-stack developer.</p>
+
+                    <p>My journey in web development ignited during my first year at university, where I eagerly started freelancing and diving into exciting side projects. There's a unique thrill in experimenting with new tools and bringing a concept to life from scratch.</p>
+
+                    <p>I am committed to writing clean, maintainable code that adheres to the latest industry standards and technological advancements. When I'm not immersed in frontend development, you'll often find me honing my problem-solving skills with Java DSA challenges, continuously growing my backend knowledge.</p>
+
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3>HTML & CSS</h3>
+                    <p>Proficient in semantic HTML,advanced CSS techniques (Grid, Flexbox), responsive design, and animations.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h3>JavaScript</h3>
+                    <p>Strong command of modern ES6+ JavaScript, DOM manipulation, asynchronous programming, and functional concepts.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <h3>React.js</h3>
+                    <p>Experienced in building dynamic, component-based UIs, state management (Context API, Redux), and hooks.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i> 
+                    </div>
+                    <h3>Java DSA</h3>
+                    <p>Solid foundation in Data Structures and Algorithms using Java, focused on efficient problem-solving and code optimization.</p>
+                </div>
+                 <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Backend Basics</h3>
+                    <p>Fundamental understanding of server-side concepts, APIs, and database interactions, eager to learn more about Java backend development.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Git & GitHub</h3>
+                    <p>Experienced with version control using Git and collaborative development workflows on GitHub.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="rrteh.jpg" alt="The All Mighty Energy chatbot project screenshot">
+                    </div>
+                    <div class="project-content">
+                        <h3>The All Mighty Energy</h3>
+                        <p>An AI‑powered spiritual chatbot exploring divine energy and metaphysical interaction. Built with Gemini API, it delivers philosophical conversations, motivational guidance, and calming responses—a unique blend of tech and transcendence.</p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Gemini API</span>
+                            <span class="tag">Chatbot</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://the-all-mighty-energy.netlify.app/" class="btn" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="fourth.jpg" alt="Bibek’s AI Chatbot project screenshot">
+                    </div>
+                    <div class="project-content">
+                        <h3>Bibek’s AI Chatbot</h3>
+                        <p>A personalized AI chatbot built for my friend Bibek using the Gemini API. This project demonstrates conversational intelligence with custom‑tailored responses and real‑time interaction—an experimental dive into modern AI capabilities.</p>
+                        <div class="project-tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Gemini API</span>
+                            <span class="tag">AI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://bibek-childhood-friend-arpita.netlify.app" class="btn" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="third.jpg" alt="Happy Birthday Celebration project">
+                    </div>
+                    <div class="project-content">
+                        <h3>Happy Birthday Celebration</h3>
+                        <p>An interactive and vibrant birthday-themed web experience hosted on Netlify. This project brings cheer with colorful visuals, custom animations, and user engaging interactions—perfect for celebrating someone special online.</p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">CSS Animations</span>
+                            <span class="tag">HTML5</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://happyyyybirthdayyyyyyyyyy.netlify.app/" class="btn" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW PROJECT CARD ADDED HERE (chandan-gpt-kiler) -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="second.jpg" alt="Chandan GPT Killer project ">
+                    </div>
+                    <div class="project-content">
+                        <h3>Chandan GPT Killer</h3>
+                        <p>A powerful AI chatbot designed to deliver highly accurate and context-aware responses, leveraging advanced language models for natural and efficient conversations. This project showcases innovative AI integration for superior user interaction.</p>
+                        <div class="project-tags">
+                            <span class="tag">AI Chatbot</span>
+                            <span class="tag">API Integration</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://chandan-gpt-kiler.vercel.app/" class="btn" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Resume</h2>
+            </div>
+            <div class="resume-content">
+                <p>Download my resume to learn more about my professional experience, education, and qualifications.</p>
+                <a href="Chandan_Kumar_Dalai_Resume.pdf" download class="btn"><i class="fas fa-download"></i> Download Resume (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <a href="mailto:kumardalaichandan803@gmail.com">kumardalaichandan803@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <a href="tel:+918114603994">+91 81146 03994</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p> Odisha,India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-cta">Ready to bring your ideas to life? Let's connect!</p>
+            <div class="social-links">
+                <a href="https://github.com/chandan0000001" class="social-link" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/chandan-kumar-dalai/" class="social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://x.com/Chandan87123804" class="social-link" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/chandan_0000_1/" class="social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="current-year"></span> Chandan Kumar Dalai. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
